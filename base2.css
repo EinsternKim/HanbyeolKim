@@ -1,0 +1,65 @@
+.container {
+  margin: 8rem auto;
+  max-width: 1440px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+figure {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: 240px;
+  overflow: hidden;
+  cursor: none; /* Mauscursor verstecken */
+}
+
+figure::after {
+  content: '';
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+figure:hover figcaption {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+figure:hover::after {
+  opacity: 1;
+}
+
+figure:hover img {
+  transform: scale(1.1);
+}
+
+figure img {
+  display: block;
+  position: absolute;
+  transition: transform 500ms ease;
+}
+
+figcaption {
+  position: absolute; /* Könnte auch "relative" sein, wenn sie nicht dem Cursor folgen soll */
+  top: 0; /* braucht man nur, wenn sie dem Cursor folgen soll */
+  left: 0; /* braucht man nur, wenn sie dem Cursor folgen soll */
+  z-index: 1;
+  pointer-events: none; /* braucht man nur, wenn sie dem Cursor folgen soll */
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 500ms ease, visibility 500ms ease;
+}

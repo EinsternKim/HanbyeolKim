@@ -1,0 +1,5 @@
+@media screen and (max-width: 640px) {
+  .container .item:first-child {
+    background-color: pink;
+  }
+}
